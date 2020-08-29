@@ -1,0 +1,18 @@
+server:
+  port: 8080
+
+spring:
+  application:
+#     不能重复，一般就是项目名
+    admin: eureka-server
+# eureka 地址
+eureka:
+  instance:
+    hostname: localhost
+  client:
+#    是否需要注册到eureka上， 如果是集群需要注册
+    register-with-eureka: false
+#    是否从eureka拉取服务列表
+    fetch-registry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
